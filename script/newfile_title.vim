@@ -66,16 +66,16 @@ func SetMDHead()
     " force to detect filetype again
     autocmd BufEnter * filetype detect
 
-    call setline(1, "title: \" \" ")
+    call setline(1, "title: \"".expand("%s").("\""))
     " Date: Y-M-D H:M:S
     call append(line("."), "date: ".strftime("%F %T"))
-    call append(line(".")+1, "tags: ")
-    call append(line(".")+2, "categories: []")
-    call append(line(".")+3, "keywords: ")
+    call append(line(".")+1, "tags: Linux")
+    call append(line(".")+2, "categories: [Linux系统管理]")
+    call append(line(".")+3, "keywords: Linux")
     call append(line(".")+4, "description: ")
     call append(line(".")+5, "author: CaoDan")
     call append(line(".")+6, "mail: caodan@linuxtoy.cn")
-    call append(line(".")+7, "--- ")
+    call append(line(".")+7, "---")
     call append(line(".")+8, "")
 
 
