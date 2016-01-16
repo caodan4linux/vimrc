@@ -14,7 +14,7 @@ func SetTitle()
         call append(line(".")+1, "\# Description: ")
         call append(line(".")+2, "\# Author: CaoDan")
         call append(line(".")+3, "\# mail: caodan@linuxtoy.cn")
-        call append(line(".")+4, "\# Created Time: ".strftime("%c"))
+        call append(line(".")+4, "\# Created Time: ".strftime("%Y-%m-%d %T"))
         call append(line(".")+5, "\#########################################################################")
         call append(line(".")+6, "\#!/bin/sh")
         call append(line(".")+7, "")
@@ -24,7 +24,7 @@ func SetTitle()
         call append(line(".")+1, "  > Description: ")
         call append(line(".")+2, "  > Author: CaoDan")
         call append(line(".")+3, "  > Mail: caodan@linuxtoy.cn ")
-        call append(line(".")+4, "  > Created Time: ".strftime("%c"))
+        call append(line(".")+4, "  > Created Time: ".strftime("%Y-%m-%d %T"))
         call append(line(".")+5, " ************************************************************************/")
         call append(line(".")+6, "")
     endif
@@ -70,7 +70,7 @@ func SetMDHead()
     " Date: Y-M-D H:M:S
     call append(line("."), "date: ".strftime("%F %T"))
     call append(line(".")+1, "tags: Linux")
-    call append(line(".")+2, "categories: [Linux系统管理]")
+    call append(line(".")+2, "categories: [LSM]")
     call append(line(".")+3, "keywords: Linux")
     call append(line(".")+4, "description: ")
     call append(line(".")+5, "author: CaoDan")
@@ -79,8 +79,6 @@ func SetMDHead()
     call append(line(".")+8, "")
 
 
-    "call append(line(".")+4, "\# Created Time: ".strftime("%c"))
-    
     autocmd BufEnter * normal gg
 
 endfunc

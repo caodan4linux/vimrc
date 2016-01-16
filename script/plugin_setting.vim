@@ -106,7 +106,7 @@ let wiki.path_html = '/data/mywiki/linux/vimwiki_html'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c': 'c', 'bash': 'sh', 'lisp': 'lisp'}
 
 let new_wiki = {}
-let new_wiki.path = '/data/blog/source/_posts'
+let new_wiki.path = '/data/repo/blog/source/_posts'
 let new_wiki.syntax = 'markdown'
 let new_wiki.ext = '.md'
 
