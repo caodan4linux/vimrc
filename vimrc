@@ -143,5 +143,9 @@ vnoremap <silent> <leader>fc :call VisualSelection('cscope_fc')<CR><CR>:copen<CR
 vnoremap <silent> <leader>fd :call VisualSelection('cscope_fd')<CR><CR>:copen<CR>
 vnoremap <silent> <leader>fi :call VisualSelection('cscope_fi')<CR><CR>:copen<CR>
 
+" auto jump to the last position
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" |endif | endif
+endif
 
 
