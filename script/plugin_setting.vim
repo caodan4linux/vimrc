@@ -17,6 +17,7 @@ let mapleader = ","
 nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Show_One_File = 1 
 let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_Right_Window = 1
 "let Tlist_Sort_Type = "name"
 
 "--------------------  about netrw  ------------------------------------
@@ -37,13 +38,13 @@ autocmd BufWinEnter \[Buf\ List\] setl nonumber
 
 "--------------------  about win_manager  -------------------------------
 "winmanager is available only if "compatilble" is not set
-let g:winManagerWindowLayout = "FileExplorer|TagList|BufExplorer"
+let g:winManagerWindowLayout = "FileExplorer|BufExplorer"
 let g:bufExplorerMaxHeight=30
 let g:winManagerWidth = 40
 let g:defaultExplorer = 0 
 nmap <C-W><C-F> :FirstExplorerWindow<cr>
 nmap <C-W><C-B> :BottomExplorerWindow<cr>
-nmap <leader>wm :WMToggle<cr>
+nmap <leader>wm :WMToggle<cr> :TlistToggle<cr>
 
 "--------------------  about YouCompleteMe  -------------------------------
 "让vim的补全菜单行为与一般IDE一致

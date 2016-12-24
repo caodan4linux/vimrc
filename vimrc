@@ -28,9 +28,8 @@ set path=
 set path+=./include
 set path+=/usr/include
 
-set tags=
-set tags+=./tags
-set tags+=/usr/include/tags
+set autochdir
+set tags=tags;
 
 :cs add /usr/include/cscope.out /usr/include
 
