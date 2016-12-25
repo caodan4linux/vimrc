@@ -39,7 +39,7 @@ autocmd BufWinEnter \[Buf\ List\] setl nonumber
 "--------------------  about win_manager  -------------------------------
 "winmanager is available only if "compatilble" is not set
 let g:winManagerWindowLayout = "FileExplorer|BufExplorer"
-let g:bufExplorerMaxHeight=30
+let g:bufExplorerMaxHeight=15
 let g:winManagerWidth = 40
 let g:defaultExplorer = 0 
 nmap <C-W><C-F> :FirstExplorerWindow<cr>
