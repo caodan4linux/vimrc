@@ -16,7 +16,7 @@ func SetTitle()
         call append(line(".")+3, "\# mail: caodan@linuxtoy.cn")
         call append(line(".")+4, "\# Created Time: ".strftime("%Y-%m-%d %T"))
         call append(line(".")+5, "\#########################################################################")
-        call append(line(".")+6, "\#!/bin/sh")
+        call append(line(".")+6, "\#!/bin/bash")
         call append(line(".")+7, "")
     else
 		call setline(1, "/*************************************************************************")
