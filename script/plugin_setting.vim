@@ -14,11 +14,18 @@ let mapleader = ","
 
 
 "--------------------  about taglist  ------------------------------------
-nnoremap <silent> <F8> :TlistToggle<CR>
+"**************** shortcut keys *******************
+" x     tag窗口放大和缩小， 可以将tag窗口最大化
+" s     change the sort type
+" u     update the tags in the taglist window
+"**************************************************
 let Tlist_Show_One_File = 1 
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
+let Tlist_WinWidth = 20
 "let Tlist_Sort_Type = "name"
+nnoremap <silent> <F8> :TlistToggle<CR>
+
 
 "--------------------  about netrw  ------------------------------------
 "输入 ",fe" 就可以打开文件在左边窗口打开宽度为30的文件浏览器
@@ -40,7 +47,7 @@ autocmd BufWinEnter \[Buf\ List\] setl nonumber
 "winmanager is available only if "compatilble" is not set
 let g:winManagerWindowLayout = "FileExplorer|BufExplorer"
 let g:bufExplorerMaxHeight=15
-let g:winManagerWidth = 40
+let g:winManagerWidth = 25
 let g:defaultExplorer = 0 
 nmap <C-W><C-F> :FirstExplorerWindow<cr>
 nmap <C-W><C-B> :BottomExplorerWindow<cr>
