@@ -1,13 +1,13 @@
 "-------------------- set the vundle --------------------
-set nocompatible              " be iMproved
-filetype off                  " required!
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" set the vundle work path
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
-" init the Bundle
-call vundle#rc()
+call vundle#begin()
 
-" let Vundle manage Vundle
+
+" let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
 " original repos on GitHub
@@ -20,8 +20,12 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion' 
 Bundle 'Raimondi/delimitMate'
 Bundle 'rstacruz/sparkup'
+" python complete plugin
+Bundle 'davidhalter/jedi-vim'
+"Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
 
-" vim-scripts repos
+" http://vim-scripts.org/vim/scripts.html
 Bundle 'taglist.vim'
 Bundle 'winmanager'
 Bundle 'bufexplorer.zip'
@@ -32,16 +36,18 @@ Bundle 'vim-flake8'
 Bundle 'vimwiki'
 Bundle 'pathogen.vim'
 Bundle 'xml.vim'
-
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
+Bundle 'matrix.vim'
 
 
 " non-GitHub repos
 "Bundle 'git://git.wincent.com/command-t.git'
 
 
+" All of your Plugins must be added before the following line
+call vundle#end()   "required
+
 filetype plugin indent on     " required!
+
 " Brief help  -- 此处后面都是vundle的使用命令
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
