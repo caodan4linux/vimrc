@@ -2,61 +2,90 @@
 " 新文件标题
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "新建.c,.h,.sh,.java文件，自动插入文件头
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()"
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py exec ":call SetTitle()"
 autocmd BufNewFile *.md exec ":call SetMDHead()"
 
 "定义函数SetTitle，自动插入文件头
 func SetTitle()
-    "如果文件类型为.sh文件
     if &filetype == 'sh'
-        call setline(1,"\#########################################################################")
-        call append(line("."), "\# File Name: ".expand("%"))
-        call append(line(".")+1, "\# Description: ")
-        call append(line(".")+2, "\# Author: CaoDan")
-        call append(line(".")+3, "\# mail: caodan@linuxtoy.cn")
-        call append(line(".")+4, "\# Created Time: ".strftime("%Y-%m-%d %T"))
-        call append(line(".")+5, "\#########################################################################")
-        call append(line(".")+6, "\#!/bin/bash")
-        call append(line(".")+7, "")
+        call setline(1,"#####################################################################")
+        call append(line("$"), "\# File Name: ".expand("%"))
+        call append(line("$"), "\# Description:")
+        call append(line("$"), "\# Author: Dan Cao <caodan@linuxtoy.cn>")
+        call append(line("$"), "\# Created Time: ".strftime("%Y-%m-%d %T"))
+        call append(line("$"), "\#####################################################################")
+        call append(line("$"), "\#!/bin/bash")
+        call append(line("$"), "")
+    elseif &filetype == 'python'
+        call setline(1,"#####################################################################")
+        call append(line("$"), "\# File Name: ".expand("%"))
+        call append(line("$"), "\# Description:")
+        call append(line("$"), "\# Author: Dan Cao <caodan@linuxtoy.cn>")
+        call append(line("$"), "\# Created Time: ".strftime("%Y-%m-%d %T"))
+        call append(line("$"), "\#####################################################################")
+        call append(line("$"), "\#!/bin/env python")
+        call append(line("$"), "\# -*- coding: utf-8 -*-")
+        call append(line("$"), "")
     else
-		call setline(1, "/*************************************************************************")
-        call append(line("."), "  > File Name: ".expand("%"))
-        call append(line(".")+1, "  > Description: ")
-        call append(line(".")+2, "  > Author: CaoDan")
-        call append(line(".")+3, "  > Mail: caodan@linuxtoy.cn ")
-        call append(line(".")+4, "  > Created Time: ".strftime("%Y-%m-%d %T"))
-        call append(line(".")+5, " ************************************************************************/")
-        call append(line(".")+6, "")
+	    call setline(1, "/*")
+        call append(line("$"), " * File Name: ".expand("%"))
+        call append(line("$"), " * Description:")
+        call append(line("$"), " * Author: Dan Cao <caodan@linuxtoy.cn>")
+        call append(line("$"), " * Created Time: ".strftime("%Y-%m-%d %T"))
+        call append(line("$"), " *")
+        call append(line("$"), " *   This program is free software; you can redistribute it and/or modify")
+        call append(line("$"), " *   it under the terms of the GNU General Public License as published by")
+        call append(line("$"), " *   the Free Software Foundation; either version 2 of the License, or")
+        call append(line("$"), " *   (at your option) any later version.")
+        call append(line("$"), " *")
+        call append(line("$"), " *   This program is distributed in the hope that it will be useful,")
+        call append(line("$"), " *   but WITHOUT ANY WARRANTY; without even the implied warranty of")
+        call append(line("$"), " *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the")
+        call append(line("$"), " *   GNU General Public License for more details.")
+        call append(line("$"), " *")
+        call append(line("$"), " *   You should have received a copy of the GNU General Public License")
+        call append(line("$"), " *   along with this program; if not, write to the Free Software")
+        call append(line("$"), " *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA")
+        call append(line("$"), " */")
+        call append(line("$"), "")
     endif
 
     if &filetype == 'cpp'
-        call append(line(".")+7, "#include <iostream>")
-        call append(line(".")+8, "using namespace std;")
-        call append(line(".")+9, "")
-        call append(line(".")+10, "int main(int argc, char *argv[])")
-        call append(line(".")+11, "{")
-        call append(line(".")+12, "")
-        call append(line(".")+13, "\treturn 0;")
-        call append(line(".")+14, "}")
+        call append(line("$"), "#include <iostream>")
+        call append(line("$"), "using namespace std;")
+        call append(line("$"), "")
+        call append(line("$"), "int main(int argc, char *argv[])")
+        call append(line("$"), "{")
+        call append(line("$"), "")
+        call append(line("$"), "\treturn 0;")
+        call append(line("$"), "}")
 
         "新建文件后，自动定位到指定位置
-        autocmd BufEnter * normal 14gg
+        autocmd BufEnter * normal 27gg
     endif
 
 	if &filetype == 'c'
-        call append(line(".")+7, "#include <unistd.h>")
-        call append(line(".")+8, "#include <stdio.h>")
-        call append(line(".")+9, "#include <stdlib.h>")
-        call append(line(".")+10, "#include <string.h>")
-        call append(line(".")+11, "")
-        call append(line(".")+12, "int main(int argc, char *argv[])")
-        call append(line(".")+13, "{")
-        call append(line(".")+14, "")
-        call append(line(".")+15, "\treturn 0;")
-        call append(line(".")+16, "}")
+        call append(line("$"), "#include <unistd.h>")
+        call append(line("$"), "#include <stdio.h>")
+        call append(line("$"), "#include <stdlib.h>")
+        call append(line("$"), "#include <string.h>")
+        call append(line("$"), "")
+        call append(line("$"), "int main(int argc, char *argv[])")
+        call append(line("$"), "{")
+        call append(line("$"), "")
+        call append(line("$"), "\treturn 0;")
+        call append(line("$"), "}")
 
         "新建文件后，自动定位到指定位置
-        autocmd BufEnter * normal 16gg
+        autocmd BufEnter * normal 29gg
+    endif
+
+    if &filetype == 'sh'
+        autocmd BufEnter * normal G
+    endif
+
+    if &filetype == 'python'
+        autocmd BufEnter * normal G
     endif
 
 endfunc
@@ -68,15 +97,15 @@ func SetMDHead()
 
     call setline(1, "title: \"".expand("%s").("\""))
     " Date: Y-M-D H:M:S
-    call append(line("."), "date: ".strftime("%F %T"))
-    call append(line(".")+1, "tags: Linux")
-    call append(line(".")+2, "categories: [LSM]")
-    call append(line(".")+3, "keywords: Linux")
-    call append(line(".")+4, "description: ")
-    call append(line(".")+5, "author: CaoDan")
-    call append(line(".")+6, "mail: caodan@linuxtoy.cn")
-    call append(line(".")+7, "---")
-    call append(line(".")+8, "")
+    call append(line("$"), "date: ".strftime("%F %T"))
+    call append(line("$"), "tags: Linux")
+    call append(line("$"), "categories: [LSM]")
+    call append(line("$"), "keywords: Linux")
+    call append(line("$"), "description: ")
+    call append(line("$"), "author: CaoDan")
+    call append(line("$"), "mail: caodan@linuxtoy.cn")
+    call append(line("$"), "---")
+    call append(line("$"), "")
 
 
     autocmd BufEnter * normal gg
