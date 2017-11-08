@@ -18,7 +18,7 @@ func SetTitle()
         call append(line("$"), "\#--------------------------------------------------------------------")
         call append(line("$"), "")
     elseif &filetype == 'python'
-        call setline(1, "\#!/bin/env python")
+        call setline(1, "\#!/usr/bin/env python")
         call append(line("$"), "\# -*- coding: utf-8 -*-")
         call append(line("$"), "")
         call append(line("$"), "\#--------------------------------------------------------------------")
