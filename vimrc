@@ -88,7 +88,11 @@ set fileencodings=ucs-bom,utf-8,cp936
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set noexpandtab  "不要使用空格代替制表符
-set expandtab  "使用空格代替制表符
+if &filetype == 'python'
+    set expandtab  "使用空格代替制表符
+else
+    set noexpandtab  "不要使用空格代替制表符
+endif
 set tabstop=4  "Tab的宽度为4
 set softtabstop=4
 set shiftwidth=4
