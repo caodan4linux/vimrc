@@ -84,6 +84,9 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 
+" 设置在第81列的位置显示红色垂直线条
+set colorcolumn=81
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
